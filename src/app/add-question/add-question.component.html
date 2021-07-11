@@ -1,0 +1,49 @@
+<div class="container">
+    <h1>Add Question Form</h1>
+    <form #questionModel="ngForm" (ngSubmit)="onSubmit()" novalidate>
+      <!-- {{ questionForm | json }} -->
+      <div class="form-group">
+        <label for="technologyStack">Pick the Subject: </label>
+        <mat-radio-group aria-labelledby="example-radio-group-label" required name="technologyStack" class="example-radio-group" [(ngModel)]="questionForm.technologyStack" #sub="ngModel" >
+        <mat-radio-button class="example-radio-button" *ngFor="let subject of technologyStackList" [value]="subject">
+            {{ subject }}
+        </mat-radio-button>
+      </mat-radio-group>
+      </div>
+      <div>Click outside After selection.</div>
+      <div>You will add Question on: {{ questionForm.technologyStack }}</div>
+   <div *ngIf="sub.touched">
+    <div class="form-group">
+      <label for="subject">Subject: </label>
+      <input type="text" class="form-control" name="subject" required [(ngModel)]="questionForm.subject">
+    </div>
+
+    <div class="form-group">
+      <label for="topic">Topic: </label>
+      <input type="text" class="form-control" name="topic" required [(ngModel)]="questionForm.topic">
+    </div>
+    <div class="form-group">
+      <label for="askedIn">Asked in: </label>
+      <input type="text" class="form-control" name="askedIn" required [(ngModel)]="questionForm.askedIn">
+    </div>
+    <div class="form-group">
+      <label for="type">Question Type: </label>
+      <mat-radio-group aria-labelledby="example-radio-group-label" required name="type" class="example-radio-group" [(ngModel)]="questionForm.type">
+      <mat-radio-button *ngFor="let types of typeList" [value]="types">
+          {{ types }}
+      </mat-radio-button>
+    </mat-radio-group>
+    </div>
+    <div class="form-group">
+      <label for="questionName">Question To Add: </label>
+      <input type="text" class="form-control" name="questionName" required [(ngModel)]="questionForm.questionName">
+    </div>
+    <div class="form-group">
+      <label for="importance">Importance: </label>
+      <input type="number" class="form-control" name="importance" required [(ngModel)]="questionForm.importance">
+    </div>
+    <button type="submit" class="btn btn-success">Submit</button>
+   </div>
+      
+    </form>
+  </div>

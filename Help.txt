@@ -1,0 +1,5 @@
+npm i typescript@">=3.6.4 and <3.9.0"
+
+ng update @angular/cli @angular/core --allow-dirty --force
+
+ng add @angular/material
